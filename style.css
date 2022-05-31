@@ -1,0 +1,327 @@
+            *,
+            html,
+            body {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                line-height: 1.1;
+                font-family: cursive;
+                perspective: 1000px;
+            }
+            
+             :root {
+                --main-color: #03045E;
+                --sec1-color: #023E8A;
+                --sec4-color: #0077B6;
+                --sec3-color: #EFEFEF;
+            }
+            
+            h1,
+            h2,
+            h3 {
+                margin: 0;
+            }
+            
+            p {
+                line-height: 1.8;
+            }
+            
+            .container {
+                width: 800px;
+                margin: auto;
+            }
+            
+            .card_game {
+                background: linear-gradient( var(--main-color), var(--sec1-color), var(--sec4-color));
+                height: 100vh;
+            }
+            
+            .card_game .controllers {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 20px;
+                align-items: center;
+            }
+            
+            .controllers .lives {
+                display: flex;
+                margin: 10px;
+            }
+            
+            .controllers .hints {
+                width: 100px;
+                height: 40px;
+                font-size: 20px;
+                border-radius: 10px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            
+            .controllers .hints:disabled {
+                color: var(--sec3-color);
+                background: var(--main-color);
+                cursor: default;
+            }
+            
+            .lives button {
+                border: 0;
+                margin: 0 5px;
+                background-color: transparent;
+            }
+            
+            .controllers .timer {
+                font-size: 30px;
+                color: var(--sec3-color);
+                min-width: 100px;
+            }
+            
+            .lives i {
+                color: var(--sec3-color);
+                font-size: 40px;
+                cursor: pointer;
+                margin: 0 5px;
+            }
+            
+            .lives .i-dark {
+                color: var(--main-color);
+            }
+            
+            .cards {
+                display: grid;
+                gap: 15px;
+                grid-template-columns: repeat(4, 1fr);
+                grid-auto-columns: minmax(180, auto);
+            }
+            
+            .card_image img {
+                width: 100%;
+            }
+            
+            .card_image img,
+            .card_wrapper .face_heart {
+                border-radius: 20px;
+            }
+            
+            .face i {
+                line-height: 200px;
+                font-size: 70px;
+                color: #112B3C;
+            }
+            
+            .flip_card:hover {
+                cursor: pointer;
+                transform: scale(1.1)
+            }
+            
+            .flip_card {
+                perspective: 1000px;
+                transition: transform 0.3s ease;
+            }
+            
+            .flip_card .card_wrapper {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                transform-style: preserve-3d;
+            }
+            /* .flip {
+                border-radius: 20px;
+                border-width: 20px;
+                border-style: solid;
+                border-color: var(--sec4-color);
+            } */
+            
+            .hint_flip,
+            .flip,
+            .user_flip {
+                transform: rotateY(180deg);
+            }
+            
+            .user_flip {
+                border: 20px solid var(--sec1-color);
+            }
+            
+            .hint_flip {
+                border: 20px solid var(--main-color) !important;
+                border-radius: 20px;
+            }
+            
+            .flip .card_image img {
+                border-radius: 0;
+            }
+            
+            .card_wrapper .face_heart {
+                backface-visibility: hidden;
+            }
+            
+            .card_wrapper .card_image {
+                transform: rotateY(180deg);
+            }
+            
+            .card_wrapper .face_heart,
+            .card_wrapper .card_image {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+            }
+            
+            .face_heart {
+                text-align: center;
+                background: #EFEFEF;
+            }
+            
+            .hidden_choice button {
+                padding: 8px 10px;
+                font-size: 20px;
+                background: #205375;
+                border-radius: 4px;
+                color: white;
+                width: 100%;
+                cursor: pointer;
+            }
+            
+            .card_wrapper .face_heart i {
+                /* position: absolute; */
+                line-height: 200px;
+                font-size: 70px;
+                color: var(--main-color);
+                z-index: -1;
+            }
+            
+            .card_wrapper {
+                perspective: 1000px;
+                transition: 1s all;
+            }
+            
+            .new_game,
+            .game_over {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0 0 0/70%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .new_game {
+                transform: scale(1);
+            }
+            
+            .new_game_logic {
+                transform: scale(0);
+                transition: 0.2s all;
+            }
+            
+            .game_over {
+                transform: scale(0);
+            }
+            
+            .game_over_logic {
+                transform: scale(1);
+                transition: 0.2s all;
+            }
+            
+            .new_game .status,
+            .game_over .status {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 250px;
+                height: 150px;
+                color: var(--sec3-color);
+                background: rgb(4, 4, 67);
+                font-size: 30px;
+                border-radius: 25px;
+                font-weight: bold;
+                box-shadow: 2px 2px 20px 10px rgb(149, 146, 146);
+                cursor: pointer;
+            }
+            
+            .newGame {
+                position: absolute;
+                background: rgba(2 62 138/50%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+            }
+            
+            .status {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                border-radius: 20px;
+            }
+            
+            .status .message {
+                font-size: 40px;
+                line-height: 1.8;
+                max-width: 400px;
+                font-weight: bold;
+                color: var(--main-color);
+            }
+            
+            .newGame button.start,
+            .status {
+                display: none;
+            }
+            
+            .status_buttons {
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                min-height: 110px;
+            }
+            
+            .status button {
+                transition: all 0.3s;
+                min-width: 150px;
+                align-self: flex-end;
+            }
+            
+            .status button:hover {
+                border-bottom: 20px solid var(--main-color);
+                transform: translateY(-20px);
+            }
+            
+            .newGame .status {
+                background: var(--sec3-color);
+                min-width: 500px;
+                min-height: 250px;
+            }
+            
+            .status button {
+                background: var(--main-color);
+                color: var(--sec3-color);
+                font-size: 30px;
+                padding: 8px 15px;
+                border-radius: 6px;
+            }
+            
+            .newGame button.start {
+                position: absolute;
+                min-width: 250px;
+                padding: 15px 0;
+                background: var(--sec3-color);
+                color: var(--main-color);
+                font-size: 60px;
+                border-radius: 10px;
+                transform: translateY(0);
+                border: 0;
+                border-bottom: 5px solid transparent;
+                transition: 0.3s all;
+                font-weight: bold;
+            }
+            
+            .newGame button:hover {
+                border-bottom: 5px solid var(--main-color);
+                transform: translateY(-5px);
+                cursor: pointer;
+            }
