@@ -48,7 +48,7 @@ function init() {
     rand_indces = [];
     heart_index = 0;
     count_success_cards = 0;
-    minutes.innerHTML = pad(5);
+    minutes.innerHTML = pad(3);
     seconds.innerHTML = pad(0);
     generate_card_locations();
     map_cards_loaction_toImages();
